@@ -12,7 +12,7 @@ import (
 // SubscribeTicker :
 func (s *V5WebsocketPublicService) SubscribeTicker(
 	key V5WebsocketPublicTickerParamKey,
-	f func(V5WebsocketPublicTickerResponse) error,
+	f func(<-chan V5WebsocketPublicTickerResponse) error,
 ) (func() error, error) {
 	if err := s.addParamTickerFunc(key, f); err != nil {
 		return nil, err
